@@ -16,7 +16,11 @@ if(target in environments) {
 // Detect appserver URL from LANDO_INFO if possible.
 else if(target === 'local' && process.env.LANDO_INFO) {
   const info = JSON.parse(process.env.LANDO_INFO);
-  if(info.appserver && info.appserver.urls.length > 0) {
+  if(info.appserver_nginx && info.appserver_nginx.urls.length > 0) {
+    const url = info.appserver.urls.pop();
+    environment = {name: "Local", url: url}
+  }
+  else if(info.appserver && info.appserver.urls.length > 0) {
     const url = info.appserver.urls.pop();
     environment = {name: "Local", url: url}
   }
