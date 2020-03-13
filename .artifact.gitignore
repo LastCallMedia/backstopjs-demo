@@ -1,0 +1,36 @@
+# Environment specific files:
+# @docroot
+web/sites/*/files
+web/sites/*/settings.local.php
+web/sites/simpletest/*
+.env
+.env.example
+docker-compose.override.yml
+
+# Build tools not required in production:
+node_modules
+bower_components
+package.json
+yarn.lock
+.circleci
+/docker
+/features
+behat.yml
+/artifacts
+docker-compose.*
+.nvmrc
+/gulp*.js
+/phpcs*
+/phpunit*
+/wd
+/.eslint*
+/.mannequin.php
+/mannequin*
+/bin
+package-lock.json
+
+# Other stuff you don't want to commit:
+*.log
+*.sql*
+.idea
+.DS_Store

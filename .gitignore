@@ -1,0 +1,32 @@
+# Environment specific files:
+# @docroot
+web/sites/*/files
+web/sites/*/settings.local.php
+web/sites/simpletest/*
+.env
+docker-compose.override.yml
+
+# Contrib/external code:
+web/core
+web/modules/contrib/*
+!web/modules/contrib/README.md
+web/themes/contrib/*
+!web/themes/contrib/README.md
+web/profiles/contrib/*
+!web/profiles/contrib/README.md
+vendor/
+node_modules
+bower_components
+
+# Build artifacts and tools:
+/artifacts
+web/themes/custom/*/dist
+web/modules/custom/*/dist
+/mannequin
+package-lock.json
+
+# Other stuff you don't want to commit:
+*.log
+*.sql*
+.idea
+.DS_Store

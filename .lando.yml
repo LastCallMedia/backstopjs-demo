@@ -1,0 +1,69 @@
+name: backstop-demo
+recipe: drupal8
+config:
+  webroot: web #@docroot
+  php: 7.2
+  via: nginx
+  drush: ^10
+  xdebug: false
+
+proxy:
+  mannequin:
+    - mannequin.lndo.site
+
+services:
+  appserver:
+    build:
+      - composer install
+  node:
+    type: node
+    build:
+      - yarn install
+    globals:
+      gulp-cli: latest
+  backstop-docker:
+    type: node:custom
+    overrides:
+      image:  backstopjs/backstopjs:4.4.2
+  mannequin:
+    type: compose
+    services:
+      image: devwithlando/php:7.3-apache
+      command: docker-php-entrypoint /app/vendor/bin/mannequin start -c /app/.mannequin.php *:80
+
+tooling:
+  gulp:
+    service: node
+  yarn:
+    service: node
+  npm:
+    service: node
+    cmd: "echo 'NPM is disabled in favor of yarn'"
+  behat:
+    service: appserver
+    cmd: vendor/bin/behat
+  phpunit:
+    service: appserver
+    cmd: vendor/bin/phpunit
+  phpcs:
+    service: appserver
+    cmd: vendor/bin/phpcs
+  mannequin:
+    service: mannequin
+    cmd: /app/vendor/bin/mennequin
+  eslint:
+    service: node
+    cmd: node_modules/.bin/eslint
+  backstop-docker:
+    service: backstop-docker
+    description: Runs "lando backstop-docker" to use backstop
+    cmd: "backstop --config=backstop-docker/backstop.js"
+  backstop_build_references:
+    service: node
+    cmd: node backstop/scripts/mannequinPages.js
+  backstop:
+    service: node
+    cmd: node_modules/.bin/backstop
+  backstop_no_config:
+    service: node
+    cmd: node_modules/.bin/backstop

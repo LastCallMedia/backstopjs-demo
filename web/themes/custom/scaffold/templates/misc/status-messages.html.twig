@@ -1,0 +1,28 @@
+{# @Component
+name: Status Messages
+description: Theme override for status messages.  Displays status, error, and warning messages, grouped by type.
+group: Drupal>Misc
+samples:
+  Status:
+    message_list: {status: ["This is the best day EVER!"]}
+  Warning:
+    message_list: {warning: ["Um, I'm not so sure about this..."]}
+  Error:
+    message_list: {error: ['Uh oh, something broke!']}
+#}
+{%
+  set class_map = {
+    error: 'alert',
+    warning: 'warning',
+    status: 'success'
+  }
+%}
+{% for type, messages in message_list %}
+  <div aria-label="{{ status_headings[type] }}" role="{{ type == 'error' ? 'alert' : 'contentinfo' }}" {{ attributes|without('role', 'aria-label') }}>
+    {% for message in messages %}
+      <div class="callout small {{ class_map[type] }}">
+        {{ message }}
+      </div>
+    {% endfor %}
+  </div>
+{% endfor %}

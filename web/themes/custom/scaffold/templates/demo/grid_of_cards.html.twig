@@ -1,0 +1,15 @@
+{# @Component
+name: Grid of Cards
+group: Demo
+description: A grid containing one or more Cards.
+samples:
+  Default:
+    items:
+      -
+        ~sample('card.html.twig#Basic')
+
+#}
+
+{% for item in items %}
+  {{ item }}
+{% endfor %}

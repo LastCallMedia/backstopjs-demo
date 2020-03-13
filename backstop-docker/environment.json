@@ -1,0 +1,6 @@
+{
+  "prod": {
+    "url": "https://dev-backstopjs-demo.pantheonsite.io",
+    "name": "Production"
+  }
+}

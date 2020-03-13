@@ -1,0 +1,12 @@
+# CSS/JS packages declared here.
+global:
+  version: 1
+  css:
+    theme:
+      dist/css/style.css: {}
+  js:
+    dist/js/libs.js: {}
+    dist/js/theme.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
