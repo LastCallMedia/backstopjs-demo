@@ -3,21 +3,18 @@
 This is a demo into how to use BackstopJS Visual Regression Testing in many different ways.
 
 # Requirements
-  - [Lando install](https://docs.lando.dev/basics/installation.html)
   - [Docker](https://docs.lando.dev/basics/installation.html#docker-engine-requirements) can be ran separately from Lando
   - [BackstopJS install](https://github.com/garris/BackstopJS#getting-started)
         `npm install -g backstopjs`
 
-# Components
-    - Drupal 8.8.3
-    - MySQL 5.7
-    - PHP 7.2
-    - Backstop
 
 # Setting Up for Local Development
 
-  - `lando start` (This will setup the database, PHP7.2, nginx, drush, and composer install)
-  - Once Lando has completed the setup you can go to any of the links available
+  Two options either use backstop-docker or backstop.
+
+  If you are using the backstop-docker copy the directory into your repository and follow these [instruction.](#Backstop-Docker).
+
+  If you are using just backstop.... Examples of backstop....
 
 # Getting Started using BackstopJS
 
@@ -25,7 +22,8 @@ This is a demo into how to use BackstopJS Visual Regression Testing in many diff
    To use this just simiply update the following files if needed:
    - [backstop-docker/enviornment.json](backstop-docker/enviornment.json)
      - This will include any environments you want to run backstop against such as Production, Stage/Test, or Dev.
-     Local is setup to run with lando.yml within the [backstop.js](backstop-docker/backstop.js).
+     Local is setup to run with lando.yml within the [backstop.js](backstop-docker/backstop.js). If you are not using Lando you can add local to
+     the environment.json file
 
    - [backstop-docker/page.json](backstop-docker/page.json)
      - The page.json includes all pages that will be used to test with backstop.
