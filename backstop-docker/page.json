@@ -2,5 +2,17 @@
   {"label": "Homepage", "url": "/"},
   {"label": "Articles", "url": "/en/articles"},
   {"label": "Recipes", "url": "/en/recipes"},
-  {"label":  "Contact", "url": "/en/contact"}
+  {"label":  "Contact", "url": "/en/contact"},
+  {"label": "Pizza", "url": "/en/recipes/gluten-free-pizza",
+    "backstopSelectors": [
+      ".view-content",
+      "document"
+    ]
+  },
+  {"label": "Herbs", "url": "/en/articles/give-it-a-go-and-grow-your-own-herbs",
+    "backstopSelectors": [
+      ".layout-sidebar",
+      "document"
+    ]
+  }
 ]
