@@ -37,7 +37,8 @@ This is a demo into how to use BackstopJS Visual Regression Testing in many diff
               ".class",
               "document"
               ]
-            },```
+            },
+       ```
       Once these files have been updated go to the following [documentation](backstop-docker/README.md) to see the commands you can use to run to compare pages.
 
 # CI setup
