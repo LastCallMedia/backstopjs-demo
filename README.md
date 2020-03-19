@@ -12,7 +12,22 @@ This is a demo into how to use BackstopJS Visual Regression Testing in many diff
 
   Two options either use backstop-docker or backstop.
 
-  If you are using the backstop-docker copy the directory into your repository and follow these [instruction.](#Backstop-Docker).
+  If you are using the `backstop-docker` copy the directory into your repository and follow these [instruction.](#Backstop-Docker) and use this part of the lando.yml file.
+
+  ```
+$services:
+$    backstop-docker:
+$        type: node:custom
+$        overrides:
+$          image:  backstopjs/backstopjs:4.4.2
+$
+$tooling:
+$    backstop-docker:
+$        service: backstop-docker
+$        description: Runs "lando backstop-docker" to use backstop with docker
+$        cmd: "backstop --config=backstop-docker/backstop.js"
+$
+```
 
   If you are using just backstop.... Examples of backstop....
 
@@ -21,12 +36,12 @@ This is a demo into how to use BackstopJS Visual Regression Testing in many diff
 ## Backstop-Docker
    To use this just simiply update the following files if needed:
    - [backstop-docker/enviornment.json](backstop-docker/enviornment.json)
-     - This will include any environments you want to run backstop against such as Production, Stage/Test, or Dev.
+     - This will include any environments you want to run BackstopJS against such as Production, Stage/Test, or Dev.
      Local is setup to run with lando.yml within the [backstop.js](backstop-docker/backstop.js). If you are not using Lando you can add local to
      the environment.json file
 
    - [backstop-docker/page.json](backstop-docker/page.json)
-     - The page.json includes all pages that will be used to test with backstop.
+     - The page.json includes all pages that will be used to test with BackstopJS.
 
        ```{"label":  "Namepage", "url": "/en/contact"}```
 
@@ -43,7 +58,7 @@ This is a demo into how to use BackstopJS Visual Regression Testing in many diff
 
 # CI setup
 
-   To add backstop to the CircleCI make sure to change the backstopjs here `"report": ["browser", "CI"],`. Add the `"CI"` to the report section.
+   To add BackstopJS to the CircleCI make sure to change the backstopjs here `"report": ["browser", "CI"],`. Add the `"CI"` to the report section.
    ```
      backstop:
         parameters:
@@ -72,7 +87,7 @@ This is a demo into how to use BackstopJS Visual Regression Testing in many diff
 # Troubleshooting
 
 ## Backstop-docker
- If you update the lando.yml file and you have trouble bring the backstop docker container back up. Lando does not remove old containers so the following needs to be done:
+ If you update the lando.yml file and you have trouble bring the backstop-docker container back up. Lando does not remove old containers so the following needs to be done:
    ```
     $ docker stop backstopjs_backstop_1
     $ docker rm backstopjs_backstop_1
