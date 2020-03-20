@@ -27,7 +27,7 @@ This is a demo into how to use BackstopJS Visual Regression Testing in many diff
 
 ## BackstopJS with Lando and Docker setup
 
-  If you want to use `backstop-docker` in current project. Copy the directory into your repository and follow these [instruction.](#Backstop-Docker) and use this part of the lando.yml file.
+  You want to use `backstop-docker` in current project. Copy the directory into your repository and follow these [instruction.](#Backstop-Docker) and use this part of the lando.yml file.
 
   ```
 $services:
@@ -46,7 +46,7 @@ $
 
 ## BackstopJS with Docker setup
 
-  If you want to use `backstop-docker` in current project. Copy the directory into your repository and follow these [instruction.](#Backstop-Docker) and add local environment to the environment.json. Add the following to docker-compose.yml.
+  You want to use `backstop-docker` in current project. Copy the directory into your repository and follow these [instruction.](#Backstop-Docker) and add local environment to the environment.json. Add the following to docker-compose.yml.
 
   ```
 $  backstop:
@@ -61,7 +61,9 @@ $    shm_size: 1gb
 
 Note the command will change a bit when only using BackstopJS with Docker instead of `lando backstop-docker` use `docker-compose run backstop`
 
-## Backstop with NPM
+## BackstopJS with NPM
+
+   You want to use BackstopJS with NPM here is example and documentation on how to run the [BackstopJS](web/themes/custom/README.md) this way.
 
 # Getting Started using BackstopJS
 
