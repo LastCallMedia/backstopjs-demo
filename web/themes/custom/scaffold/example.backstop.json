@@ -11,10 +11,10 @@
   "onReadyScript": "puppet/onReady.js",
   "scenarios": [
     {
-      "label": "Grid of Cards",
+      "label": "",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://mannequin.lndo.site/m-render/babea2a0c7900e6c1c3de42ee0f8724f/Default.html",
-      "referenceUrl": "http://mannequin.lndo.site/m-render/ba05dc39e8240611cf78965386286f49/Default.html",
+      "url": "",
+      "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
       "delay": 0,
