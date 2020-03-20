@@ -1,0 +1,76 @@
+.card {
+  display: block;
+  padding: 30px;
+  overflow: visible;
+  border: solid 1px black;
+
+  h3 {
+    font-size: 140%;
+  }
+
+  img {
+    max-width: 400px;
+    border: solid 1px brown;
+  }
+
+  .authored,
+  .tags {
+    font-size: 80%;
+  }
+
+  .alert {
+    border: solid #f9d966;
+    color: #3a341f;
+    padding: 0 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background: #f9d9668a;
+    a {
+      color: #3a341f;
+    }
+    p {
+      margin: 0;
+    }
+  }
+
+  .tags {
+    ul {
+      display: inline-block;
+      list-style-type: none;
+      margin: {
+        top: 15px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      };
+
+      li {
+        display: inline-block;
+        background: brown;
+        color: white;
+        border-radius: 5px;
+        padding: 5px 10px;
+      }
+    }
+  }
+
+  &--fancy {
+    font-size: 110%;
+    border: double 3px brown;
+    color: brown;
+
+    h3 {
+      font-size: 170%;
+      font-weight: 600;
+    }
+
+    p {
+      // margin: {
+      //   top: 15px;
+      //   left: 0;
+      //   right: 0;
+      //   bottom: 0;
+      // };
+    }
+  }
+}
