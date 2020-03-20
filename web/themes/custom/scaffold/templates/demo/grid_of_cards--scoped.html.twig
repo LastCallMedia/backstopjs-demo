@@ -1,0 +1,21 @@
+{# @Component
+name: Grid of Cards (scoped)
+group: Demo
+description: A grid containing one or more Cards.
+samples:
+  Default:
+    items:
+      - ~sample('@scaffold/demo/card--scoped.html.twig#Basic')
+      - ~sample('@scaffold/demo/card--scoped.html.twig#Basic')
+      - ~sample('@scaffold/demo/card--scoped.html.twig#Basic')
+      - ~sample('@scaffold/demo/card--scoped.html.twig#Basic')
+      - ~sample('@scaffold/demo/card--scoped.html.twig#Basic')
+      - ~sample('@scaffold/demo/card--scoped.html.twig#Basic')
+
+#}
+
+<div class="grid-of-cards">
+  {% for item in items %}
+    {{ item }}
+  {% endfor %}
+</div>
