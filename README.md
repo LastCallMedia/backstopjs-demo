@@ -69,7 +69,7 @@ Note the command will change a bit when only using BackstopJS with Docker instea
 
 ## Backstop-Docker
    To use this just simiply update the following files if needed:
-   - [backstop-docker/enviornment.json](backstop-docker/enviornment.json)
+   - [backstop-docker/environment.json](backstop-docker/environment.json)
      - This will include any environments you want to run BackstopJS against such as Production, Stage/Test, or Dev.
      Local is setup to run with lando.yml within the [backstop.js](backstop-docker/backstop.js). If you are not using Lando you can add local to
      the environment.json file
