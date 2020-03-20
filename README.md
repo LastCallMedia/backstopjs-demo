@@ -25,7 +25,7 @@ This is a demo into how to use BackstopJS Visual Regression Testing in many diff
 
 # Setting Up for Local Development Options
 
-## BackstopJS with Lando and Docker setup
+## BackstopJS with Lando
 
   You want to use `backstop-docker` in current project. Copy the directory into your repository and follow these [instruction.](#Backstop-Docker) and use this part of the lando.yml file.
 
@@ -44,7 +44,7 @@ $        cmd: "backstop --config=backstop-docker/backstop.js"
 $
 ```
 
-## BackstopJS with Docker setup
+## BackstopJS with `docker-compose`
 
   You want to use `backstop-docker` in current project. Copy the directory into your repository and follow these [instruction.](#Backstop-Docker) and add local environment to the environment.json. Add the following to docker-compose.yml.
 
