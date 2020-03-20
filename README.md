@@ -16,7 +16,7 @@ This is a demo into how to use BackstopJS Visual Regression Testing in many diff
     - `lando start`
     - `lando composer install`
     - `lando db-import drupal8.2020-03-12-1584018477.sql.gz` - To import the database
-    - Open the files.zip and add the files folder to the following directory `/web/sites/default/`
+    - Open the [files.zip](assets/files.zip) and add the files folder to the following directory `/web/sites/default/`
     - If you need the URL use either of the following commands:
         - `lando info` (This will give you info about the container)
         - `lando rebuild` (This will rebuild lando this should always be used if any changes to lando.yml are made.)
