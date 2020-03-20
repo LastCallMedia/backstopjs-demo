@@ -1,0 +1,16 @@
+{# @Component
+name: Card
+group: Demo
+description: A card.
+samples:
+  Basic:
+    content:
+      heading: "Basic Card: Title text here"
+      body: "This is the card body for a Basic Card. Lorem ipsum dolor sit amet."
+
+#}
+
+<div class="card">
+  <h3>{{ content.heading }}</h3>
+  <p>{{ content.body }}</p>
+</div>

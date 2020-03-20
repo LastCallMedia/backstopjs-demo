@@ -4,13 +4,42 @@ group: Demo
 description: A card.
 samples:
   Basic:
+    alert: "Register for FancyCon2020 before July 1, 2020 and win an extra fancy prize! "
     content:
       heading: "Basic Card: Title text here"
-      body: "This is the card body for a Basic Card. Lorem ipsum dolor sit amet."
+      body: "This is the card body text for a Basic Card. Lorem ipsum dolor sit amet."
+  Fancy:
+    alert: "Register for FancyCon2020 before July 1, 2020 and win an extra fancy prize! "
+    fancy: true
+    content:
+      image:
+        src: "/web/themes/custom/scaffold/templates/demo/fancykitten.jpg"
+        alt: "Photo of a fluffy kitten wearing a stylish hat."
+      heading: "Fancy card"
+      body: "This is the card body text for a Fancy Card. Fancy lorem ipsum dolor sit amet."
+      tags:
+        - text: Kittens
+        - text: Hats
+        - text: Kittens in Hats
+        - text: Fancy
+      authored: "January 1, 2020"
 
 #}
 
-<div class="card">
+<div class="card {% if fancy %}card--fancy{% endif %}">
+  <div class="alert">
+    <p>{{ alert }}</p>
+  </div>
+  <img src="{{ content.image.src }}" alt="{{ content.image.alt }}">
   <h3>{{ content.heading }}</h3>
+  <span class="authored">Authored: {{ content.authored }}</span>
+  <div class="tags">
+    <span>Tagged:</span>
+    <ul>
+      {% for tag in content.tags %}
+        <li>{{ tag.text }}</li>
+      {% endfor %}
+    </ul>
+  </div>
   <p>{{ content.body }}</p>
 </div>

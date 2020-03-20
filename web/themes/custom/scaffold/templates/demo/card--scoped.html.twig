@@ -1,5 +1,5 @@
 {# @Component
-name: Card
+name: Card (scoped)
 group: Demo
 description: A card.
 samples:
@@ -27,19 +27,23 @@ samples:
 #}
 
 <div class="card {% if fancy %}card--fancy{% endif %}">
-  <div class="alert">
-    <p>{{ alert }}</p>
-  </div>
-  <img src="{{ content.image.src }}" alt="{{ content.image.alt }}">
+  {% if fancy %}
+    <div class="alert">
+      <p>{{ alert }}</p>
+    </div>
+    <img src="{{ content.image.src }}" alt="{{ content.image.alt }}">
+  {% endif %}
   <h3>{{ content.heading }}</h3>
-  <span class="authored">Authored: {{ content.authored }}</span>
-  <div class="tags">
-    <span>Tagged:</span>
-    <ul>
-      {% for tag in content.tags %}
-        <li>{{ tag.text }}</li>
-      {% endfor %}
-    </ul>
-  </div>
+  {% if fancy %}
+    <span class="authored">Authored: {{ content.authored }}</span>
+    <div class="tags">
+      <span>Tagged:</span>
+      <ul>
+        {% for tag in content.tags %}
+          <li>{{ tag.text }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
   <p>{{ content.body }}</p>
 </div>
