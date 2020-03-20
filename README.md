@@ -3,32 +3,79 @@
 This is a demo into how to use BackstopJS Visual Regression Testing in many different ways.
 
 # Requirements
-  - [Lando install](https://docs.lando.dev/basics/installation.html)
   - [Docker](https://docs.lando.dev/basics/installation.html#docker-engine-requirements) can be ran separately from Lando
   - [BackstopJS install](https://github.com/garris/BackstopJS#getting-started)
         `npm install -g backstopjs`
 
-# Components
-    - Drupal 8.8.3
-    - MySQL 5.7
-    - PHP 7.2
-    - Backstop
 
-# Setting Up for Local Development
+# Setup Backstop with Demo Repository
 
-  - `lando start` (This will setup the database, PHP7.2, nginx, drush, and composer install)
-  - Once Lando has completed the setup you can go to any of the links available
+- Make sure to install [Lando](https://docs.lando.dev/basics/installation.html#system-requirements)
+- Clone the repository
+- Run the following command
+    - `lando start`
+    - `lando composer install`
+    - `lando db-import drupal8.2020-03-12-1584018477.sql.gz` - To import the database
+    - Open the [files.zip](assets/files.zip) and add the files folder to the following directory `/web/sites/default/`
+    - If you need the URL use either of the following commands:
+        - `lando info` (This will give you info about the container)
+        - `lando rebuild` (This will rebuild lando this should always be used if any changes to lando.yml are made.)
+    - Homepage should appear if you need to login `lando drush uli` to get a login
+    - If you need cache rebuild `lando drush cr`
+
+# Setting Up for Local Development Options
+
+## BackstopJS with Lando and Docker setup
+
+  You want to use `backstop-docker` in current project. Copy the directory into your repository and follow these [instruction.](#Backstop-Docker) and use this part of the lando.yml file.
+
+  ```
+$services:
+$    backstop-docker:
+$        type: node:custom
+$        overrides:
+$          image:  backstopjs/backstopjs:4.4.2
+$
+$tooling:
+$    backstop-docker:
+$        service: backstop-docker
+$        description: Runs "lando backstop-docker" to use backstop with docker
+$        cmd: "backstop --config=backstop-docker/backstop.js"
+$
+```
+
+## BackstopJS with Docker setup
+
+  You want to use `backstop-docker` in current project. Copy the directory into your repository and follow these [instruction.](#Backstop-Docker) and add local environment to the environment.json. Add the following to docker-compose.yml.
+
+  ```
+$  backstop:
+$    image: "backstopjs/backstopjs:4.4.2"
+$    environment:
+$      BASE_URL: "http://drupal:80"
+$    volumes:
+$      - ./backstop:/src
+$    shm_size: 1gb
+ $   entrypoint: [backstop, --config=/src/backstop.js]
+```
+
+Note the command will change a bit when only using BackstopJS with Docker instead of `lando backstop-docker` use `docker-compose run backstop`
+
+## BackstopJS with NPM
+
+   You want to use BackstopJS with NPM here is example and documentation on how to run the [BackstopJS](web/themes/custom/README.md) this way.
 
 # Getting Started using BackstopJS
 
 ## Backstop-Docker
    To use this just simiply update the following files if needed:
    - [backstop-docker/enviornment.json](backstop-docker/enviornment.json)
-     - This will include any environments you want to run backstop against such as Production, Stage/Test, or Dev.
-     Local is setup to run with lando.yml within the [backstop.js](backstop-docker/backstop.js).
+     - This will include any environments you want to run BackstopJS against such as Production, Stage/Test, or Dev.
+     Local is setup to run with lando.yml within the [backstop.js](backstop-docker/backstop.js). If you are not using Lando you can add local to
+     the environment.json file
 
    - [backstop-docker/page.json](backstop-docker/page.json)
-     - The page.json includes all pages that will be used to test with backstop.
+     - The page.json includes all pages that will be used to test with BackstopJS.
 
        ```{"label":  "Namepage", "url": "/en/contact"}```
 
@@ -39,12 +86,13 @@ This is a demo into how to use BackstopJS Visual Regression Testing in many diff
               ".class",
               "document"
               ]
-            },```
+            },
+       ```
       Once these files have been updated go to the following [documentation](backstop-docker/README.md) to see the commands you can use to run to compare pages.
 
 # CI setup
 
-   To add backstop to the CircleCI make sure to change the backstopjs here `"report": ["browser", "CI"],`. Add the `"CI"` to the report section.
+   To add BackstopJS to the CircleCI 2.0 make sure to change the backstopjs here `"report": ["browser", "CI"],`. Add the `"CI"` to the report section.
    ```
      backstop:
         parameters:
@@ -73,7 +121,7 @@ This is a demo into how to use BackstopJS Visual Regression Testing in many diff
 # Troubleshooting
 
 ## Backstop-docker
- If you update the lando.yml file and you have trouble bring the backstop docker container back up. Lando does not remove old containers so the following needs to be done:
+ If you update the lando.yml file and you have trouble bring the backstop-docker container back up. Lando does not remove old containers so the following needs to be done:
    ```
     $ docker stop backstopjs_backstop_1
     $ docker rm backstopjs_backstop_1
@@ -82,4 +130,5 @@ This is a demo into how to use BackstopJS Visual Regression Testing in many diff
 
 # Attribution
    [BackstopJS](https://github.com/garris/BackstopJS) was created and is maintained by Garris Shipon
+
 

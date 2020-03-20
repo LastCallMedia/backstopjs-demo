@@ -56,7 +56,7 @@ tooling:
     cmd: node_modules/.bin/eslint
   backstop-docker:
     service: backstop-docker
-    description: Runs "lando backstop-docker" to use backstop
+    description: Runs "lando backstop-docker" to use backstop with docker
     cmd: "backstop --config=backstop-docker/backstop.js"
   backstop_build_references:
     service: node
