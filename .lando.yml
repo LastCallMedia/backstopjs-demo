@@ -4,7 +4,6 @@ config:
   webroot: web #@docroot
   php: 7.2
   via: nginx
-  drush: ^10
   xdebug: false
 
 proxy:
