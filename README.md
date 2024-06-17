@@ -1,6 +1,6 @@
 # BackstopJS: Avoid misery with Visual Regression Testing
 
-This is a demo into how to use BackstopJS Visual Regression Testing in many different ways.
+BackstopJS Demo is brought to you by your friends at [Last Call Media](https://www.lastcallmedia.com), it is a demo into how to use BackstopJS Visual Regression Testing in many different ways.
 
 # Requirements
   - [Docker](https://docs.lando.dev/basics/installation.html#docker-engine-requirements) can be ran separately from Lando
