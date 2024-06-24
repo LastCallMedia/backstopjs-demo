@@ -4,7 +4,6 @@ config:
   webroot: web #@docroot
   php: 7.2
   via: nginx
-  drush: ^10
   xdebug: false
 
 proxy:
@@ -24,7 +23,7 @@ services:
   backstop-docker:
     type: node:custom
     overrides:
-      image:  backstopjs/backstopjs:4.4.2
+      image:  backstopjs/backstopjs:5.0.0
   mannequin:
     type: compose
     services:
